@@ -18,7 +18,11 @@ const TaskList = () => {
 		fetchData()
 	}, [])
 
-	return <div>{tasks && tasks.map((task) => <Task task={task} />)}</div>
+	return (
+		<div>
+			{tasks && tasks.map((task) => <Task key={task.id} task={task} />)}
+		</div>
+	)
 }
 
 export default TaskList

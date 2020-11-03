@@ -12,8 +12,8 @@ Below you will find a roadplan for the task, with each user story and its curren
 | CRA               | :heavy_check_mark: |
 | Redux fetch       | :construction:     |
 | Design Card       | :construction:     |
-| edit/delete icons | :soon:             |
-| edit/delete UI    | :soon:             |
+| edit/delete icons | :construction:     |
+| edit/delete UI    | :construction:     |
 | New UI            | :soon:             |
 | Animations        | :soon:             |
 | Deploy on AWS     | :soon:             |
