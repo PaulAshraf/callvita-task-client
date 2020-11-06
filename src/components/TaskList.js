@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchRequested } from '../slices/taskSlice'
 import Task from './Task'
 
 const TaskList = () => {
-	const [tasks, setTasks] = useState(null)
+	const dispatch = useDispatch()
+
+	const tasks = useSelector((state) => state.tasks.tasks)
+	const isLoading = useSelector((state) => state.tasks.isLoading)
+	const error = useSelector((state) => state.tasks.error)
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const res = await axios.get('http://localhost:8000/api/task')
-				setTasks(res.data)
-			} catch (error) {
-				console.error(error)
-			}
-		}
-
-		fetchData()
-	}, [])
+		dispatch(fetchRequested())
+	}, [dispatch])
 
 	return (
 		<div>
