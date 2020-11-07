@@ -10,9 +10,9 @@ Below you will find a roadplan for the task, with each user story and its curren
 | ----------------- | ------------------ |
 | Set Roadplan      | :heavy_check_mark: |
 | CRA               | :heavy_check_mark: |
-| Redux fetch       | :construction:     |
-| Design Card       | :construction:     |
-| edit/delete icons | :construction:     |
+| Redux fetch       | :heavy_check_mark: |
+| Design Card       | :heavy_check_mark: |
+| edit/delete icons | :heavy_check_mark: |
 | edit/delete UI    | :construction:     |
 | New UI            | :soon:             |
 | Animations        | :soon:             |

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchRequested } from '../slices/taskSlice'
+import Loading from './Loading'
 import Task from './Task'
+import Error from './Error'
 
 const TaskList = () => {
 	const dispatch = useDispatch()
@@ -16,7 +18,13 @@ const TaskList = () => {
 
 	return (
 		<div>
-			{tasks && tasks.map((task) => <Task key={task.id} task={task} />)}
+			{isLoading ? (
+				<Loading />
+			) : error ? (
+				<Error message={error} />
+			) : (
+				tasks.map((task) => <Task key={task.id} task={task} />)
+			)}
 		</div>
 	)
 }
