@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiFillWarning } from 'react-icons/ai'
+import { error } from '../constants/colors'
 
 const Error = (props) => {
 	return (
@@ -12,7 +13,7 @@ const Error = (props) => {
 }
 
 const Container = styled.div`
-	color: #cd0a0a;
+	color: ${error};
 	text-align: center;
 	padding: 10px;
 	font-size: 2rem;

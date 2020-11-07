@@ -4,6 +4,7 @@ import { fetchRequested } from '../slices/taskSlice'
 import Loading from './Loading'
 import Task from './Task'
 import Error from './Error'
+import styled from 'styled-components'
 
 const TaskList = () => {
 	const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const TaskList = () => {
 	}, [dispatch])
 
 	return (
-		<div>
+		<Container>
 			{isLoading ? (
 				<Loading />
 			) : error ? (
@@ -25,8 +26,12 @@ const TaskList = () => {
 			) : (
 				tasks.map((task) => <Task key={task.id} task={task} />)
 			)}
-		</div>
+		</Container>
 	)
 }
+
+const Container = styled.div`
+	height: 100vh;
+`
 
 export default TaskList

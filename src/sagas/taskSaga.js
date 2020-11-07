@@ -1,8 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
+import { apiUrl } from '../constants/apiUrls'
 
 const fetchAPI = async () => {
-	const response = await axios.get('http://localhost:8000/api/task')
+	const response = await axios.get(apiUrl)
 	return response.data
 }
 

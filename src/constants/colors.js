@@ -1,0 +1,5 @@
+export const pageBackground = '#e8ded2'
+export const containerBackground = '#a3d2ca'
+export const primary = '#056676'
+export const secondary = '#5eaaa8'
+export const error = '#cd0a0a'

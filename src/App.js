@@ -1,11 +1,7 @@
 import TaskList from './components/TaskList'
 
 function App() {
-	return (
-		<div>
-			<TaskList />
-		</div>
-	)
+	return <TaskList />
 }
 
 export default App

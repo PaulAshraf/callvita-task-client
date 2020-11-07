@@ -1,20 +1,23 @@
 import React from 'react'
 import { FadeLoader } from 'react-spinners'
+import { primary } from '../constants/colors'
 import styled from 'styled-components'
 
 const Loading = () => {
 	return (
 		<Container>
-			<FadeLoader color="#056676" />
+			<FadeLoader color={primary} />
 		</Container>
 	)
 }
 
 const Container = styled.div`
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	min-height: 100px;
 `
 
 export default Loading
