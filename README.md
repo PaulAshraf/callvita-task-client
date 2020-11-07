@@ -16,7 +16,7 @@ Below you will find a roadplan for the task, with each user story and its curren
 | edit/delete UI    | :heavy_check_mark: |
 | New UI            | :heavy_check_mark: |
 | Animations        | :soon:             |
-| Deploy on AWS     | :soon:             |
+| Deploy on AWS     | :heavy_check_mark: |
 
 ---
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Callvita Task",
+  "name": "A React frontend (bootstrapped with CRA) for a task management web app to be delivered for Callvita",
   "icons": [
     {
       "src": "favicon.ico",
