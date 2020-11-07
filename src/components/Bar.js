@@ -27,6 +27,9 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: ${containerBackground};
 	font-size: 1.8rem;
 	text-align: center;
@@ -54,13 +57,13 @@ const Input = styled.input`
 	height: 100%;
 	font-size: 1.8rem;
 	color: ${primary};
-	background-color: ${containerBackground};
+	background-color: transparent;
 	border: none;
 	font-family: 'Comfortaa';
 	vertical-align: middle;
-	:hover {
+	/* :hover {
 		background-color: ${secondary};
-	}
+	} */
 	:focus {
 		outline: none;
 	}
