@@ -13,8 +13,8 @@ Below you will find a roadplan for the task, with each user story and its curren
 | Redux fetch       | :heavy_check_mark: |
 | Design Card       | :heavy_check_mark: |
 | edit/delete icons | :heavy_check_mark: |
-| edit/delete UI    | :construction:     |
-| New UI            | :soon:             |
+| edit/delete UI    | :heavy_check_mark: |
+| New UI            | :heavy_check_mark: |
 | Animations        | :soon:             |
 | Deploy on AWS     | :soon:             |
 
