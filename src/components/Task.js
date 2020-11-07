@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { fetchRequested } from '../slices/taskSlice'
-import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
+import { AiFillDelete, AiFillEdit, AiFillCheckCircle } from 'react-icons/ai'
+import { MdCancel } from 'react-icons/md'
 import { containerBackground, primary, secondary } from '../constants/colors'
 import { apiUrl } from '../constants/apiUrls'
 import Loading from './Loading'
@@ -13,6 +14,11 @@ const Task = (props) => {
 
 	const [loading, setLoading] = useState(false)
 	const [edit, setEdit] = useState(false)
+	const [editValue, setEditValue] = useState({
+		title: task.title,
+		description: task.description,
+	})
+
 	const dispatch = useDispatch()
 
 	const deleteTask = async (id) => {
@@ -29,7 +35,7 @@ const Task = (props) => {
 	const updateTask = async (id) => {
 		setLoading(true)
 		try {
-			await axios.put(`${apiUrl}/${id}`)
+			await axios.put(`${apiUrl}/${id}`, editValue)
 		} catch (error) {
 			console.error(error)
 		}
@@ -47,19 +53,58 @@ const Task = (props) => {
 						task.id.split('-')[1]
 					}`}</Code>
 					<Heading>
-						<Title>{task.title}</Title>
-						<Buttons>
-							<Button>
-								<AiFillDelete
-									onClick={() => deleteTask(task.id)}
-								/>
-							</Button>
-							<Button>
-								<AiFillEdit />
-							</Button>
-						</Buttons>
+						{!edit ? (
+							<Title>{task.title}</Title>
+						) : (
+							<Input
+								defaultValue={editValue.title}
+								onChange={(e) =>
+									setEditValue({
+										...editValue,
+										title: e.target.value,
+									})
+								}
+							/>
+						)}
+						{!edit ? (
+							<Buttons>
+								<Button>
+									<AiFillDelete
+										onClick={() => deleteTask(task.id)}
+									/>
+								</Button>
+								<Button>
+									<AiFillEdit
+										onClick={() => setEdit(!edit)}
+									/>
+								</Button>
+							</Buttons>
+						) : (
+							<Buttons>
+								<Button>
+									<AiFillCheckCircle
+										onClick={() => updateTask(task.id)}
+									/>
+								</Button>
+								<Button>
+									<MdCancel onClick={() => setEdit(!edit)} />
+								</Button>
+							</Buttons>
+						)}
 					</Heading>
-					<Desc>{task.description}</Desc>
+					{!edit ? (
+						<Desc>{task.description}</Desc>
+					) : (
+						<InputDesc
+							defaultValue={editValue.description}
+							onChange={(e) =>
+								setEditValue({
+									...editValue,
+									description: e.target.value,
+								})
+							}
+						/>
+					)}
 				</div>
 			)}
 		</Container>
@@ -120,6 +165,23 @@ const Desc = styled.div`
 	padding: 10px;
 	font-size: 1.2rem;
 	font-family: 'Comfortaa';
+`
+
+const Input = styled.input`
+	width: 60%;
+	font-size: 1.3rem;
+	color: ${primary};
+	background-color: ${secondary};
+	border: none;
+	border-bottom: solid ${primary};
+	font-family: 'Comfortaa';
+	margin: 5px;
+	justify-items: end;
+`
+
+const InputDesc = styled(Input)`
+	margin-left: 15px;
+	width: calc(60% - 12px);
 `
 
 export default Task
